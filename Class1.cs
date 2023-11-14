@@ -39,6 +39,7 @@ namespace Cl1
                 {
                     post++;
                 }
+
             }
             while (info.Key != ConsoleKey.Enter);
             return post;
@@ -50,10 +51,12 @@ namespace Cl2
 {
     internal class Tortik
     {
+        public string Name;
         public string Forma;
-        public int Razmer;
+        public string Razmer;
         public string Taste;
         public string Glazur;
         public string Decor;
+        public int Price;
     }
 }

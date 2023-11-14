@@ -23,6 +23,19 @@ class Calculator
     static DateTime now = DateTime.Now;            // ${DateTime.Now}  (Для вывода)
     static string userName = Environment.UserName;      // Определение имени усройства
     static string txt;                                  // переменная для записи в файл данных
+    static int n, n1, n2;
+    static int t, t1, t2;
+    static int y, y1, y2;
+    static int c, c1, c2;
+    //static List<Tortik> n = new List<Tortik>();         // листы для записывания тортов
+    //static List<Tortik> t = new List<Tortik>();
+    //static List<Tortik> y = new List<Tortik>();
+    //static List<Tortik> c = new List<Tortik>();
+
+    static Tortik napoleon = new Tortik();
+    static Tortik teramisu = new Tortik();
+    static Tortik yagodnuy = new Tortik();
+    static Tortik cremoviy = new Tortik();
 
     static void Main()
     {
@@ -37,9 +50,127 @@ class Calculator
         }
         Console.Clear();
 
-        Tortik 
+        napoleon.Name = "Наполеон";
+        napoleon.Forma = "Квадратный";
+        napoleon.Razmer = "Средний";
+        napoleon.Taste = "Кремовый";
+        napoleon.Glazur = "Нет";
+        napoleon.Decor = "Нет";
+        napoleon.Price = 1200;
 
-        txt = $"{DateTime.Now}";                                                                                       //  МЕСТО ВВОДА ДАННЫХ В ФАЙЛ
+        teramisu.Name = "Терамису";
+        teramisu.Forma = "Прямоугольный";
+        teramisu.Razmer = "Маленький";
+        teramisu.Taste = "Шоколад";
+        teramisu.Glazur = "Нет";
+        teramisu.Decor = "Шоколадная посыпка";
+        teramisu.Price = 1500;
+
+        yagodnuy.Name = "Ягодный";
+        yagodnuy.Forma = "Круг";
+        yagodnuy.Razmer = "Большой";
+        yagodnuy.Taste = "Ягоды";
+        yagodnuy.Glazur = "Нет";
+        yagodnuy.Decor = "Ягоды";
+        yagodnuy.Price = 1000;
+
+        cremoviy.Name = "Кремовый";
+        cremoviy.Forma = "Круг";
+        cremoviy.Razmer = "Большой";
+        cremoviy.Taste = "Крем";
+        cremoviy.Glazur = "Есть";
+        cremoviy.Decor = "Шарики";
+        cremoviy.Price = 700;
+
+        //n.Add(napoleon);
+        //t.Add(teramisu);
+        //y.Add(yagodnuy);
+        //c.Add(cremoviy);
+
+        //t[1].выбрать из листа нужный элемент
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("Меню: ");
+            Console.WriteLine($"  {napoleon.Name}");
+            Console.WriteLine($"  {teramisu.Name}");
+            Console.WriteLine($"  {yagodnuy.Name}");
+            Console.WriteLine($"  {cremoviy.Name}");
+            Console.WriteLine("  Закончить покупку");
+
+            int post = Menu.men(1, 5);
+
+            if (post == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Название: " + napoleon.Name);
+                Console.WriteLine("Форма: " + napoleon.Forma);
+                Console.WriteLine("Размер: " + napoleon.Razmer);
+                Console.WriteLine("Вкус: " + napoleon.Taste);
+                Console.WriteLine("Глазурь: " + napoleon.Glazur);
+                Console.WriteLine("Декор: " + napoleon.Decor);
+                Console.WriteLine("Цена: " + napoleon.Price);
+                Console.Write("Ввелите количество: ");
+                n1 = Convert.ToInt32(Console.ReadLine());
+                n = n + n1;
+            }
+            if (post == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Название: " + teramisu.Name);
+                Console.WriteLine("Форма: " + teramisu.Forma);
+                Console.WriteLine("Размер: " + teramisu.Razmer);
+                Console.WriteLine("Вкус: " + teramisu.Taste);
+                Console.WriteLine("Глазурь: " + teramisu.Glazur);
+                Console.WriteLine("Декор: " + teramisu.Decor);
+                Console.WriteLine("Цена: " + teramisu.Price);
+                Console.Write("Ввелите количество: ");
+                t1 = Convert.ToInt32(Console.ReadLine());
+                t = t + t1;
+            }
+            if (post == 3)
+            {
+                Console.Clear();
+                Console.WriteLine("Название" + teramisu.Name);
+                Console.WriteLine("Форма:" + yagodnuy.Forma);
+                Console.WriteLine("Размер: " + yagodnuy.Razmer);
+                Console.WriteLine("Вкус: " + yagodnuy.Taste);
+                Console.WriteLine("Глазурь: " + yagodnuy.Glazur);
+                Console.WriteLine("Декор: " + yagodnuy.Decor);
+                Console.WriteLine("Цена: " + yagodnuy.Price);
+                Console.Write("Ввелите количество: ");
+                y1 = Convert.ToInt32(Console.ReadLine());
+                y = y + y1;
+            }
+            if (post == 4)
+            {
+                Console.Clear();
+                Console.WriteLine("Название: " + cremoviy.Name);
+                Console.WriteLine("Форма: " + cremoviy.Forma);
+                Console.WriteLine("Размер: " + cremoviy.Razmer);
+                Console.WriteLine("Вкус: " + cremoviy.Taste);
+                Console.WriteLine("Глазурь: " + cremoviy.Glazur);
+                Console.WriteLine("Декор: " + cremoviy.Decor);
+                Console.WriteLine("Цена: " + cremoviy.Price);
+                Console.Write("Ввелите количество: ");
+                c1 = Convert.ToInt32(Console.ReadLine());
+                c = c + c1;
+            }
+            if (post == 5)
+            {
+                break;
+            }
+            Console.SetCursorPosition(0, 7);
+        }
+
+        Console.Clear();
+        n2 = n * napoleon.Price;
+        t2 = t * teramisu.Price;
+        y2 = y * yagodnuy.Price;
+        c2 = c * cremoviy.Price;
+        int summa = n2 + t2 + y2 + c2;
+
+        txt = $"Заказ от {DateTime.Now} \n  Заказ:\n  {napoleon.Name}: {n}\n  {teramisu.Name}: {t}\n  {yagodnuy.Name}: {y}\n  {cremoviy.Name}: {c}\n  Итоговая сумма: {summa}";                                                                                       //  МЕСТО ВВОДА ДАННЫХ В ФАЙЛ
         
         Console.WriteLine(txt);            // удалить позже или заменить
 
